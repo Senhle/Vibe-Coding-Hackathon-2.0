@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Unlock Your Answer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <style>
+        body {
+            background-color: #0C0C0C;
+            background-image: radial-gradient(circle at center, rgba(0, 255, 0, 0.2) 0%, rgba(0, 255, 0, 0.1) 30%, transparent 70%);
+            background-size: 200px 200px;
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center min-h-screen p-4">
+    <h1 class="text-3xl font-bold text-blue-600 mb-6">Unlock Your Answer</h1>
+    <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-md text-center">
+        <p class="mb-6 text-gray-700">You need to pay KES 5 to get the answer.</p>
+        <form method="POST" action="{% url 'pay' %}">
+    {% csrf_token %}
+    <input type="hidden" name="question" value="{{ question }}">
+    <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 mb-4">Pay KES 5</button>
+</form>
+
+        <p class="mb-4">Or subscribe monthly for unlimited questions.</p>
+        <a href="#" class="text-blue-500 hover:underline">Subscribe Monthly</a>
+        <div class="mt-6">
+            <a href="{% url 'index' %}" class="text-gray-500 hover:underline">Cancel and go back</a>
+        </div>
+    </div>
+    <p class="mt-4 text-gray-500">Powered by Homework Helper | Partnered with EdTech</p>
+</body>
+</html>
