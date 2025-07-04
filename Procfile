@@ -1,1 +1,2 @@
-web: gunicorn homework_helper.wsgi --log-file -
+
+web: gunicorn homework_helper.wsgi --bind 0.0.0.0:$PORT
