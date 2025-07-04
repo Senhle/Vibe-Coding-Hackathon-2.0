@@ -5,7 +5,7 @@ This project is a Django web app with two main pages:
 Home page: index.html — main user interface
 
 Paywall page: paywall.html — page shown for restricted access
-
+the  index.html is here:homework_helper\helper\templates\helper
 How to Run
 Make sure you have Python and Django installed.
 If not, install Django with:
